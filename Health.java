@@ -14,10 +14,10 @@ public class Health {
         LinkedList<Doctor> doctors = Doctor.createDoctors();
         LinkedList<Nurse> nurses = Nurse.createNurses();
 
-        Patient patient = createPatient(scanner, validation);
+        Patient patient = createPatient(validation);
         Doctor doctor = chooseDoctor(scanner, doctors, validation);
         Nurse nurse = chooseNurse(scanner, nurses, validation);
-        MedicalLog log = createMedicalLog(scanner, patient, doctor, nurse, validation);
+        MedicalLog log = createMedicalLog(patient, doctor, nurse, validation);
         patient.addLog(log);
 
         Appointment.AppointmentManager appointmentManager = new Appointment.AppointmentManager();
@@ -26,7 +26,7 @@ public class Health {
         patient.viewBilling();
     }
 
-    private static Patient createPatient(Scanner scanner, Validation validation) {
+    private static Patient createPatient(Validation validation) {
         System.out.println("\n======== Enter Patient details ========");
 
         String name = validation.valString("\nName: ");
@@ -63,7 +63,7 @@ public class Health {
         return nurses.get(nurseChoice - 1);
     }
 
-    private static MedicalLog createMedicalLog(Scanner scanner, Patient patient, Doctor doctor, Nurse nurse, Validation validation) {
+    private static MedicalLog createMedicalLog(Patient patient, Doctor doctor, Nurse nurse, Validation validation) {
         System.out.println("\n====== Enter Medical log details ======");
         String logId = validation.valString("\nLog ID: ");
         System.out.println("\n=======================================");
