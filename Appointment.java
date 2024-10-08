@@ -110,9 +110,9 @@ public class Appointment {
         public List<Appointment> filterAppointments(String filterCriteria) {
             List<Appointment> filterResults = new ArrayList<>();
             for (Appointment appointment : appointments.values()) {
-                if (filterCriteria.equalsIgnoreCase("Scheduled") && appointment.getStatus().equalsIgnoreCase("Scheduled")) {
+                if (filterCriteria.equals("Scheduled") && appointment.getStatus().equals("Scheduled")) {
                     filterResults.add(appointment);
-                } else if (filterCriteria.equalsIgnoreCase("Cancelled") && appointment.getStatus().equalsIgnoreCase("Cancelled")) {
+                } else if (filterCriteria.equals("Cancelled") && appointment.getStatus().equals("Cancelled")) {
                     filterResults.add(appointment);
                 }
             }
